@@ -1,15 +1,15 @@
 const http = require('http');
 const url = require('url');
-const Db = require('./db');
+const data = require('./data/users');
 const validator = require('./validate/validate');
 
 let response;
+const userData = {}
 
 module.exports = http.createServer((req, res) => {
   const requestUrl = url.parse(req.url, true);
 
   if (requestUrl.pathname == '/login' && req.method === 'POST') {
-
       requestBody = '';
 
       req.on('data', (data) => {
@@ -27,18 +27,21 @@ module.exports = http.createServer((req, res) => {
             };
           }
           else {
-            const { rows } = await Db('SELECT * FROM users WHERE email = $1', [postBody.email]);
-            if (!rows[0]) {
-              const newUser = await Db('INSERT INTO users (email, password) VALUES ($1, $2) returning *', [postBody.email, postBody.password]);
+            const user = data.users.filter(el => el.email === postBody.email);
+            if (!user[0]) {
+              userData.email = postBody.email;
+              userData.password = postBody.password;
+              userData.id = data.users.length + 1;
+              data.users.push(userData);
               response = {
-                "data": newUser.rows[0]
+                "data": userData
               };
               res.statusCode = 201;
               res.setHeader('Content-Type', 'application/json');
               res.end(JSON.stringify(response));
             }
             else {
-              if (rows[0].password !== postBody.password) {
+              if (user[0].password !== postBody.password) {
                 response = {
                   "error": 'Invalid login credentials'
                 };
@@ -48,7 +51,7 @@ module.exports = http.createServer((req, res) => {
               }
               else {
                 response = {
-                  "data": rows[0]
+                  "data": user[0]
                 };
                 res.statusCode = 200;
                 res.setHeader('Content-Type', 'application/json');
