@@ -7,6 +7,8 @@ const signIn = (req, res, next) => {
 
   if (!email && !userName) errors.push('Input either a username or your email to continue');
 
+  if (email && userName) errors.push('Remove either the email or user name to continue');
+
   if (!password) errors.push('Input a password to continue');
 
   if (password && !/^(?=.*[a-z])/.test(password)) errors.push('Password must contain at least one lower case character');

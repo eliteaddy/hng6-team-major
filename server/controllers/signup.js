@@ -1,43 +1,36 @@
 const userData = require('../data/users');
+const query = require('../Db/index');
 
-const signup = (req, res) => {
+const signup = async(req, res) => {
   const { 
     email, password, userName, firstName, lastName
    } = req.body;
 
-  const userInfo = {};
+  try {
+    const registeredUser = await query('SELECT * FROM users WHERE email = $1', [email]);
 
-  const registeredUser = userData.users.filter(user => user.email === email);
+    const existingUsername = await query('SELECT * FROM users WHERE username = $1', [userName]);
 
-  const existingUsername = userData.users.filter(user => user.username === userName);
+    if (existingUsername.rows[0]) {
+      return res.status(409).json({ status: 'error',  error: 'Username already exists' });
+    }
 
-  if (existingUsername[0]) {
-    return res.status(409).json({ status: 'error',  error: 'Username already exists' });
+    if (registeredUser.rows[0]) {
+      return res.status(409).json({ status: 'error',  error: 'Email already exists' });
+    }
+
+    const insertQuery = 'INSERT INTO users (email, password, username, firstname, lastname) VALUES ($1, $2, $3, $4, $5) RETURNING *';
+    
+    const { rows } = await query(insertQuery, [email, password, userName, firstName, lastName]);
+
+    const response = { ...rows[0] };
+
+    delete response.password;
+
+    return res.status(201).json({ status: 'success', data: response });
+  } catch(error) {
+    res.status(500).json({ status: 'error', error: error.message });
   }
-
-  if (registeredUser[0]) {
-    return res.status(409).json({ status: 'error',  error: 'Email already exists' });
-  }
-  
-  userInfo.id = userData.users.length + 1;
-
-  userInfo.email = email;
-
-  userInfo.password = password;
-
-  userInfo.username = userName;
-
-  userInfo.firstName = firstName;
-
-  userInfo.lastName = lastName;
-
-  userData.users.push(userInfo);
-
-  const response = { ...userInfo };
-
-  delete response.password;
-
-  return res.status(201).json({ status: 'success', data: response });
 };
 
 module.exports = signup;
