@@ -15,6 +15,10 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use('/api/v1/auth', auth);
 
+app.get('/', (req, res) => res.status(200).json({
+  status: 200,
+  message: 'Welcome To PropertyPro',
+}));
 
 app.use((req, res, next) => {
   const error = new Error('The specified route does not exist');
