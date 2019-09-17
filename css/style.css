@@ -1,0 +1,72 @@
+.input-group-addon {
+  padding-right: 10px;
+}
+
+.middle {
+  align-items: center;
+}
+
+#line {
+  padding-top: 15px;
+  
+}
+
+
+.grid-container {
+  display: grid;
+  font-size: 15px;
+  grid-template-columns: auto auto;
+  grid-gap: 50px;
+  font-weight: bold;
+
+/*  padding: 10px;
+  padding-left: 100px;
+  padding-right: 100px;*/
+
+}
+
+h2 {
+  
+font-style: normal;
+font-weight: bold;
+
+line-height: 56px;
+letter-spacing: 0.1em;
+}
+
+ h2 span {
+  color: #008080;
+}
+
+h6 span {
+  color: #E21B1B;
+}
+
+footer {
+  font-size: 14px;
+  text-align: center;
+}
+
+.form-group {
+  font-size: 18px;
+}
+
+.shadow {
+  background: #fff;
+      -webkit-box-shadow: 0 4px 4px -2px #222;
+        -moz-box-shadow: 0 4px 4px -2px #222;
+        box-shadow: 0 4px 4px -2px #222;
+        padding: 30px;  
+       margin-right: 150px;
+       margin-left: 150px;
+
+        
+}
+
+.fa { 
+  position: absolute;
+  top: 12px;
+  right: 7px;
+  font-size: 14px;
+  color: #C3C3C3;
+}
