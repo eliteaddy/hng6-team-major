@@ -17,7 +17,7 @@ app.use('/api/v1/auth', auth);
 
 app.get('/', (req, res) => res.status(200).json({
   status: 200,
-  message: 'Welcome To PropertyPro',
+  message: 'Welcome To Team Major',
 }));
 
 app.use((req, res, next) => {
