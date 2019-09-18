@@ -2,6 +2,7 @@ const userData = require('../data/users');
 const query = require('../Db/index');
 
 const signup = async(req, res) => {
+  const errors = [];
   const { 
     email, password, userName, firstName, lastName
    } = req.body;
@@ -12,11 +13,15 @@ const signup = async(req, res) => {
     const existingUsername = await query('SELECT * FROM users WHERE username = $1', [userName]);
 
     if (existingUsername.rows[0]) {
-      return res.status(409).json({ status: 'error',  error: 'Username already exists' });
+      errors.push('Username already exists')
     }
 
     if (registeredUser.rows[0]) {
-      return res.status(409).json({ status: 'error',  error: 'Email already exists' });
+      errors.push('Email already exists')
+    }
+
+    if (errors.length > 0) {
+      return res.status(409).json({ status: 'success', error: errors });
     }
 
     const insertQuery = 'INSERT INTO users (email, password, username, firstname, lastname) VALUES ($1, $2, $3, $4, $5) RETURNING *';

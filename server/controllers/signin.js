@@ -4,15 +4,19 @@ const query = require('../Db/index');
 const signIn = async(req, res) => {
   const { email, password } = req.body;
 
+  const errors = [];
+
   try {
     const { rows } = await query('SELECT * from users WHERE email = ($1) OR username = ($1)', [email]);
 
     if (!rows[0]) {
-      return res.status(404).json({ status: 'error',  error: 'Email or Username not found' });
+      errors.push('Email or Username not found');
+      return res.status(404).json({ status: 'error',  error: errors });
     }
 
     if (rows[0].password !== password) {
-      return res.status(401).json({ status: 'error',  error: 'Incorrect Login details' });
+      errors.push('Invalid login credentials');
+      return res.status(401).json({ status: 'error',  error: errors });
     }
 
     const response = { ...rows[0] }

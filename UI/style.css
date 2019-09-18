@@ -135,3 +135,9 @@ font-size: 14px;
 line-height: 15px;
 letter-spacing: 0.02em;
 }
+
+.pError{
+  font-size: 14px;
+  color: red;
+  text-align: center;
+}
