@@ -5,49 +5,76 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  <title>Login page</title>
+  <title>Sign Up page</title>
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
-  <!-- Bootstrap core CSS -->
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <!-- Your custom styles (optional) -->
-  <link href="css/style.css" rel="stylesheet">
+ <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.8.10/css/mdb.min.css" rel="stylesheet">
+  <link href="style.css" rel="stylesheet">
 </head>
 
 <body>
-
-
-      <div class="container">
-        <div class="row text-center ">
-            <div class="col-md-12">
-                <br /><br />
-                <h2>team<span>Major</span></h2>
-                <br>
- 
-            </div>
-        </div>
-
-        <div class="shadow">
-
+        <div class="container"><br><br>
+        	<div class="card">
          <div class="row d-flex justify-content-center ">
-
- 
-                  <div class="col-md-5 ">
+                <div class="col-md-4 ">
+                  <div class= "side-image text-center"><br>
+                    <h4 class="team">team<span>Major</span></h4><br>
+                    <div class="welcome mt-5">Welcome!</div>
+                    <div class="line mb-4"></div>
+                    <p>Already have an account?<br>Login to view your personal profile</p>
+                    <button type="button" class="btn">SIGN IN</button>
+                  </div>
+                </div>
+                <div class="col-md-1">
+                  
+                </div>
+                  <div class="col-md-4 ">
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                        <strong> <h4>Welcome</h4> </strong>  
-                        
-                        <h6>Login to your account</h6>
+                            <div class="panel-heading text-center">
+                        <strong> <h2>Create an Account</h2> </strong>
+                        <div class="line mb-4"></div>
+                        <p>Sign Up today to enjoy the benefits of<br>being a member</p>
                             </div>
                             <div class="panel-body">
                                 <form role="form">
                                        <br />
+
+                                           <h6>First Name <span>*</span></h6>
+                                     <div class="form-group input-group">
+                                            <!-- <span class="input-group-addon"><i class="fa fa-tag"  ></i></span> -->
+                                  
+
+                                            <input type="text" class="form-control" name="user_name" placeholder = "Enter your first name" style="font-size: 14px" autofocus="autofocus"/>
+
+                                        </div>
+
+                                            <h6>Last Name <span>*</span></h6>
+                                     <div class="form-group input-group">
+                                            <!-- <span class="input-group-addon"><i class="fa fa-tag"  ></i></span> -->
+                                  
+
+                                            <input type="text" class="form-control" name="user_name" placeholder = "Enter your last name" style="font-size: 14px" autofocus="autofocus"/>
+
+                                        </div>
+
                                        <h6>Email <span>*</span></h6>
                                      <div class="form-group input-group">
                                             <!-- <span class="input-group-addon"><i class="fa fa-tag"  ></i></span> -->
                                   
 
                                             <input type="text" class="form-control" name="user_name" placeholder = "Enter your Email address" style="font-size: 14px" autofocus="autofocus"/>
+
+                                        </div>
+
+                                            <h6>Username <span>*</span></h6>
+                                     <div class="form-group input-group">
+                                            <!-- <span class="input-group-addon"><i class="fa fa-tag"  ></i></span> -->
+                                  
+
+                                            <input type="text" class="form-control" name="user_name" placeholder = "Enter your username" style="font-size: 14px" autofocus="autofocus"/>
 
                                         </div>
 
@@ -59,6 +86,15 @@
                                             <input type="password" class="form-control"  placeholder="Enter your Password " style="font-size: 14px"  />
                                           <span> <i class="fa fa-eye-slash" aria-hidden="true"></i> </span>
                                         </div>
+
+                                           <h6>Confirm Password <span>*</span></h6>
+                                            <div class="form-group input-group">
+                                            <!-- <span class="input-group-addon"><i class="fa fa-lock"  ></i></span> -->
+                                            <input type="password" class="form-control"  placeholder="Retype your Password " style="font-size: 14px"  />
+                                          <span> <i class="fa fa-eye-slash" aria-hidden="true"></i> </span>
+                                        </div>
+
+
                                    <!--  <div class="form-group">
                                             <label class="checkbox-inline">
                                                 <input type="checkbox" /> Remember me
@@ -68,20 +104,11 @@
                                             </span>
                                         </div> -->
                                     <div class="text-center">
-                                     <a href="index.html" class="btn btn-info col-md-12 "><strong>LOGIN</strong></a>
+                                     <button type="button" class="btn">SIGN UP</button>
+
                                    </div>
 
-                                <div id="line">
-                                    <important>   <hr /> </important>
-                                </div>
-                               
-                                    <div class="grid-container">
-                                     <a href="registration.html" style="color: #008080" >Create Account </a> 
-                                   
 
-                                   
-                                     <a href="#" style="color: #E21B1B"> Forgot Password ? </a>
-                                    </div>
 
                                     </form>
                             </div>
@@ -91,10 +118,12 @@
  
 
       </div>
-
+</div>
     </div>
+</div>
 
-        <br>
+      <br>
+
 
         <footer>
           <p>@ 2019. All rights reserved</p>
@@ -106,11 +135,9 @@
 
   <!-- SCRIPTS -->
   <!-- JQuery -->
-  <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
-  <!-- Bootstrap tooltips -->
-  <script type="text/javascript" src="js/popper.min.js"></script>
-  <!-- Bootstrap core JavaScript -->
-  <script type="text/javascript" src="js/bootstrap.min.js"></script>
+ <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 </body>
 
