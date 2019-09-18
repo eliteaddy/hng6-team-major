@@ -10,7 +10,7 @@ const signup = async(req, res) => {
     const registeredUser = await query('SELECT * FROM users WHERE email = $1', [email]);
 
     const existingUsername = await query('SELECT * FROM users WHERE username = $1', [userName]);
-    
+
     if (existingUsername.rows[0]) {
       return res.status(409).json({ status: 'error',  error: 'Username already exists' });
     }

@@ -3,9 +3,11 @@ const signIn = (req, res, next) => {
 
   const errors = [];
 
-  const { email, password } = req.body;
+  const { email, password, userName } = req.body;
 
-  if (!email) errors.push('Input an email or username to continue');
+  if (!email && !userName) errors.push('Input either a username or your email to continue');
+
+  if (email && userName) errors.push('Remove either the email or user name to continue');
 
   if (!password) errors.push('Input a password to continue');
 
@@ -21,7 +23,9 @@ const signIn = (req, res, next) => {
 
   if (password && /\s/.test(password)) errors.push('Password must not contain whitesepace');
 
-  if (email && (!regexForEmail.test(email) && !/^[a-zA-Z0-9]+$/.test(email))) errors.push('Invalid email or username supplied');
+  if (email && !regexForEmail.test(email)) errors.push('Invalid email supplied');
+
+  if (userName && !/^[a-zA-Z0-9]+$/.test(userName)) errors.push('Username can only contain a combination of numbers and alphabets')
 
   if (errors.length > 0) {
     return res.status(401).json({
