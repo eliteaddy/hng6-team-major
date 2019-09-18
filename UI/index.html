@@ -40,26 +40,34 @@
                         <p>Login to view your personal profile and<br> enjoy thousands of benefits</p>
                             </div>
                             <div class="panel-body">
-                                <form role="form">
+                                <form role="form" method="post" id = 'myForm'>
                                        <br />
 
                                     
                                             <h6>Username <span>*</span></h6>
+                                            <div class = 'form-family'>
                                      <div class="form-group input-group">
                                             <!-- <span class="input-group-addon"><i class="fa fa-tag"  ></i></span> -->
                                   
 
-                                            <input type="text" class="form-control" name="user_name" placeholder = "Enter your username" style="font-size: 14px" autofocus="autofocus"/>
+                                            <input type="text" class="form-control" name="user_name" placeholder = "Enter your username or email" id = "email" style="font-size: 14px" autofocus="autofocus"/>
 
                                         </div>
+                                        <p id = "emailError" class= "pError" >Hello There</p>
+                                      </div>
 
 
 
                                             <h6>Password <span>*</span></h6>
+                                            <div class = 'form-family'>
                                             <div class="form-group input-group">
-                                            <!-- <span class="input-group-addon"><i class="fa fa-lock"  ></i></span> -->
-                                            <input type="password" class="form-control"  placeholder="Enter your Password " style="font-size: 14px"  />
+                                              <!-- <span class="input-group-addon"><i class="fa fa-lock"  ></i></span> -->
+                                            <input type="password" class="form-control"  placeholder="Enter your Password " id = "password" style="font-size: 14px"  />
                                           <span> <i class="fa fa-eye-slash" aria-hidden="true"></i> </span>
+                                  
+                                            </div>
+                                            <p id = "passwordError" class= "pError" >Hello There</p>
+                                       </div>
                                         </div>
 
 

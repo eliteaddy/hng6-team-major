@@ -15,7 +15,7 @@ const signIn = async(req, res) => {
     }
 
     if (rows[0].password !== password) {
-      errors.push('Email or Username not found');
+      errors.push('Invalid login credentials');
       return res.status(401).json({ status: 'error',  error: errors });
     }
 
