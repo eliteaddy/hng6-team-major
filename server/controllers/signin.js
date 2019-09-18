@@ -2,19 +2,13 @@ const userData = require('../data/users');
 const query = require('../Db/index');
 
 const signIn = async(req, res) => {
-  const { 
-    email, password, userName
-   } = req.body;
+  const { email, password } = req.body;
 
   try {
-    const { rows } = await query('SELECT * from users WHERE email = ($1) OR username = ($2)', [email, userName]);
+    const { rows } = await query('SELECT * from users WHERE email = ($1) OR username = ($1)', [email]);
 
-    if (!rows[0] && email) {
+    if (!rows[0]) {
       return res.status(404).json({ status: 'error',  error: 'Email not found' });
-    }
-
-    if (!rows[0] && userName) {
-      return res.status(404).json({ status: 'error',  error: 'Username not found' });
     }
 
     if (rows[0].password !== password) {
