@@ -20,6 +20,10 @@ const signup = async(req, res) => {
       errors.push('Email already exists')
     }
 
+    if (errors.length > 0) {
+      return res.status(409).json({ status: 'success', error: errors });
+    }
+
     const insertQuery = 'INSERT INTO users (email, password, username, firstname, lastname) VALUES ($1, $2, $3, $4, $5) RETURNING *';
     
     const { rows } = await query(insertQuery, [email, password, userName, firstName, lastName]);
@@ -27,10 +31,6 @@ const signup = async(req, res) => {
     const response = { ...rows[0] };
 
     delete response.password;
-
-    if (errors.length > 0) {
-      return res.status(409).json({ status: 'success', error: errors });
-    }
 
     return res.status(201).json({ status: 'success', data: response });
   } catch(error) {

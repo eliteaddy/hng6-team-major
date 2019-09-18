@@ -28,54 +28,44 @@ const myForm = document.querySelector('#myForm');
 const url = 'https://hng-authentication.herokuapp.com/api/v1/auth/signup';
 
 const displayErrorMessage = (dataSource) => {
-  if (typeof dataSource.error !== 'string') {
-    dataSource.error.forEach(error => {
-      if (error === 'Input an email to continue' || 
-      error === 'Invalid email supplied') {
-        emailError.textContent = error;
-      } else {
-        emailError.textContent = '';
-      }
-      if (error === 'Input a password to continue' || 
-      error === 'Password must contain at least one lower case character' ||
-      error === 'Password must contain at least one upper case character' ||
-      error === 'Password must contain at least one number' ||
-      error === 'Password must contain at least one special case character' ||
-      error === 'Password must contain at least 8 characters' ||
-      error === 'Password must not contain whitesepace') {
-        passwordError.textContent = error;
-      } else {
-        passwordError.textContent = '';
-      }
-      if (error === 'Username can only contain a combination of numbers and alphabets') {
-        usernameError.textContent = error;
-      } else {
-        usernameError.textContent = '';
-      }
-      if (error === 'Invalid first name supplied') {
-        firstNameError.textContent = error;
-      } else {
-        firstNameError.textContent = '';
-      }
-      if (error === 'Invalid last name supplied') {
-        lastNameError.textContent = error;
-      } else {
-        lastNameError.textContent = '';
-      }
-      if (error === 'Password and Confirm password do not match') {
-        confirmPasswordError.textContent = '';
-      }
-    })
-  }
-    if (dataSource.error === 'string' && dataSource.error === 'Username already exists') {
-      usernameError.textContent = dataSource.error;
+  dataSource.error.forEach(error => {
+    if (error === 'Input an email to continue' || 
+    error === 'Invalid email supplied' || error === 'Email already exists') {
+      emailError.textContent = error;
+    } else {
+      emailError.textContent = '';
     }
-    else {
+    if (error === 'Input a password to continue' || 
+    error === 'Password must contain at least one lower case character' ||
+    error === 'Password must contain at least one upper case character' ||
+    error === 'Password must contain at least one number' ||
+    error === 'Password must contain at least one special case character' ||
+    error === 'Password must contain at least 8 characters' ||
+    error === 'Password must not contain whitesepace') {
+      passwordError.textContent = error;
+    } else {
+      passwordError.textContent = '';
+    }
+    if (error === 'Username can only contain a combination of numbers and alphabets' || 
+    error === 'Username already exists') {
+      usernameError.textContent = error;
+    } else {
       usernameError.textContent = '';
     }
-    if (dataSource.error === 'string' && dataSource.error === 'Email already exists') {
-      emailError.textContent = dataSource.error;
+    if (error === 'Invalid first name supplied') {
+      firstNameError.textContent = error;
+    } else {
+      firstNameError.textContent = '';
     }
+    if (error === 'Invalid last name supplied') {
+      lastNameError.textContent = error;
+    } else {
+      lastNameError.textContent = '';
+    }
+    if (error === 'Password and Confirm password do not match') {
+      confirmPasswordError.textContent = '';
+    }
+  })
 };
 
 const signupUser = (e) => {
