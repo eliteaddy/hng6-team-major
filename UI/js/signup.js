@@ -32,9 +32,7 @@ const displayErrorMessage = (dataSource) => {
     if (error === 'Input an email to continue' || 
     error === 'Invalid email supplied' || error === 'Email already exists') {
       emailError.textContent = error;
-    } else {
-      emailError.textContent = '';
-    }
+    } 
     if (error === 'Input a password to continue' || 
     error === 'Password must contain at least one lower case character' ||
     error === 'Password must contain at least one upper case character' ||
@@ -43,32 +41,30 @@ const displayErrorMessage = (dataSource) => {
     error === 'Password must contain at least 8 characters' ||
     error === 'Password must not contain whitesepace') {
       passwordError.textContent = error;
-    } else {
-      passwordError.textContent = '';
     }
     if (error === 'Username can only contain a combination of numbers and alphabets' || 
-    error === 'Username already exists') {
+    error === 'Username already exists' || error === 'Input a username to continue') {
       usernameError.textContent = error;
-    } else {
-      usernameError.textContent = '';
-    }
-    if (error === 'Invalid first name supplied') {
+    } 
+    if (error === 'Invalid first name supplied' || error === 'Input a firstname to continue') {
       firstNameError.textContent = error;
-    } else {
-      firstNameError.textContent = '';
-    }
-    if (error === 'Invalid last name supplied') {
+    }  
+    if (error === 'Invalid last name supplied' || error === 'Input a last name to continue') {
       lastNameError.textContent = error;
-    } else {
-      lastNameError.textContent = '';
-    }
-    if (error === 'Password and Confirm password do not match') {
-      confirmPasswordError.textContent = '';
+    } 
+    if (error === 'Password and Confirm password do not match' || error === 'Confirm Password is required') {
+      confirmPasswordError.textContent = error;
     }
   })
 };
 
 const signupUser = (e) => {
+  firstNameError.textContent = '';
+  lastNameError.textContent = '';
+  usernameError.textContent = '';
+  passwordError.textContent = '';
+  confirmPasswordError.textContent = '';
+  emailError.textContent = '';
   e.preventDefault();
   fetch(url, {
     method: 'POST',
@@ -87,7 +83,6 @@ const signupUser = (e) => {
   })
     .then(res => res.json())
     .then((data) => {
-      console.log(1, data);
       if (data.error)displayErrorMessage(data);
       if (!data.error) {
         window.location.href = './dashboard/teamMajor.html';
