@@ -6,10 +6,13 @@ const password = document.querySelector('#password');
 
 const passwordError = document.querySelector('#passwordError');
 
+const myForm = document.querySelector('#myForm');
+
 const url = 'https://hng-authentication.herokuapp.com/api/v1/auth/signin';
 
 
 const displayErrorMessage = (dataSource) => {
+  console.log(dataSource.error);
   dataSource.error.forEach(error => {
     if (error === 'Input a password to continue' || 
     error === 'Password must contain at least one lower case character' ||
@@ -21,13 +24,18 @@ const displayErrorMessage = (dataSource) => {
       passwordError.textContent = error;
     }
     if (error === 'Input either a username or your email to continue' ||
+    error === 'Email or Username not found' ||
     error === 'Invalid email or username supplied'||
-    error === '')
+    error ===  'Invalid login credentials') {
+      emailError.textContent = error;
+    }
   })
 };
 
 const signinUser = (e) => {
   e.preventDefault();
+  passwordError.textContent = '';
+  emailError.textContent = '';
   fetch(url, {
     method: 'POST',
     headers: {
@@ -43,8 +51,6 @@ const signinUser = (e) => {
     .then((data) => {
       if (data.error)displayErrorMessage(data);
       if (!data.error) {
-        errorDisplay.style.display = 'none';
-        setSessionStorage(data);
         window.location.href = './dashboard/teamMajor.html';
       }
     })
@@ -52,4 +58,4 @@ const signinUser = (e) => {
     .catch(error => console.log(error.message));
 };
 
-form.addEventListener('submit', signinUser);
+myForm.addEventListener('submit', signinUser);
