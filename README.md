@@ -7,3 +7,4 @@ A simple app that allows an Individual to:
 4) if user exist, proceed to a welcome dashboard.
 
 Heroku URL: https://hng-authentication.herokuapp.com/
+The Frontend URL: https://eliteaddy.github.io/hng6-team-majo
