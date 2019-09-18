@@ -4,7 +4,8 @@
   "description": "HNG INTERNSHIP",
   "main": "index.js",
   "scripts": {
-    "start": "node server/index.js"
+    "start": "node server/index.js",
+    "deploy": "gh-pages -d UI"
   },
   "repository": {
     "type": "git",
@@ -24,5 +25,8 @@
     "express": "^4.17.1",
     "nstall": "^0.2.0",
     "pg": "^7.12.1"
+  },
+  "devDependencies": {
+    "gh-pages": "^2.1.1"
   }
 }
