@@ -1,0 +1,181 @@
+/* Desktop Device */
+@media screen and (min-width: 767px) {
+  h1.college {
+    font-size: 53.44px;
+    font-weight: 500;
+    color: #B11271;
+    letter-spacing: 3px;
+  }
+
+  h6.college {
+    font-size: 35.62px;
+    font-weight: 500;
+    color: #333333;
+    letter-spacing: 2px;
+  }
+  
+  .img-logo1 {
+    width: 50%;
+  }
+
+  .img-logo2 {
+    width: 70%;
+  }
+
+  .img-container {
+    float: left;
+    width: 33.333%;
+    padding: 50px;
+  }
+
+  .img-container2 {
+    float: left;
+    width: 33.333%;
+    padding: 50px;
+  }
+
+
+}
+
+/* Mobile Devices */
+@media screen and (max-width: 767px) {
+  h1.college {
+    font-size: 20px;
+    font-weight: 500;
+    color: #B11271;
+    letter-spacing: 2px;
+  }
+
+  h6.college {
+    font-size: 15px;
+    font-weight: 500;
+    color: #333333;
+    letter-spacing: 2px;
+  }
+
+  img.icons {
+    width: 32px;
+    height: 32px;
+  }
+
+  p.intranet-page {
+    font-size: 15px;
+    color: #2929DD;
+    font-weight: 400;
+    letter-spacing: 2px;
+  }
+
+  p.expertise {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  .icon {
+    font-size: 10px;
+  }
+
+  input::placeholder {
+    font-size: 10px;
+  }
+
+  .img-logo1 {
+    width: 50%;
+  }
+
+  .img-logo2 {
+    width: 100%;
+  }
+
+  .expertise-text {
+    text-align: center;
+    font-size: 9px;
+    font-weight: bold;
+  }
+
+  .img-container {
+    float: left;
+    width: 33.333%;
+  }
+
+  .img-container2 {
+    float: left;
+    width: 33.333%;
+  }
+
+  .footer-text {
+    font-size: 10px;
+  }
+
+}
+
+.intranet-page {
+  font-size: 36px;
+  color: #2929DD;
+  font-weight: 400;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+.expertise {
+  font-size: 34px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.expertise-title {
+  max-width: 100px;
+  margin: auto;
+}
+
+.expertise-text {
+  text-align: center;
+}
+
+.content {
+  max-width: 800px;
+  margin:auto;
+}
+
+.block {
+  display: block;
+  width: 100%;
+  border: none;
+  border-radius: 5px;
+  background-color: #B11271;
+  padding: 7px 28px;
+  font-size: 16px;
+  color: white;
+  text-align: center;
+}
+
+.icon {
+  padding: 10px; 
+  min-width: 40px;
+  color: lightgrey;
+}
+
+.input-icons i { 
+  position: absolute; 
+}
+
+.input-field {
+  padding: 10px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  width: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+footer {
+  background-color: #f8bbd0;
+}
+
+.footer-text {
+  color: #333333;
+}
