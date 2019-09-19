@@ -1,4 +1,5 @@
 node_modules
 .env
 .gitignore
-/frontend/node_modules
+/front=end/node_modules
+/front-end/.git
