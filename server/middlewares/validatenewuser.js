@@ -37,7 +37,7 @@ const validator = (req, res, next) => {
 
   if (userName && !/^[a-zA-Z0-9]+$/.test(userName)) errors.push('Username can only contain a combination of numbers and alphabets');
 
-  if ((lastName && !/^[a-zA-Z\-]+$/.test(lastName.trim())) || (lastName && lastName.trim().length < 3)) errors.push('Invalid first name supplied');
+  if ((lastName && !/^[a-zA-Z\-]+$/.test(lastName.trim())) || (lastName && lastName.trim().length < 3)) errors.push('Invalid last name supplied');
 
   if ((firstName && !/^[a-zA-Z\-]+$/.test(firstName.trim())) || (firstName && firstName.trim().length < 3)) errors.push('Invalid first name supplied');
   
